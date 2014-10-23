@@ -1,0 +1,130 @@
+/* 
+    Document   : toDoCSS
+    Created on : Oct 17, 2014, 4:49:48 PM
+    Author     : Bharath_Kalyans
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+
+*,body{
+    margin: 0;
+   
+/*    top:0;*/
+    
+}
+body{
+     background-color: lightgray;
+}
+
+#head{
+    position: static;
+    top: 0;
+    background-color: #97d14b;
+    color: white;
+    text-align: center;
+    font-size: 50px;
+}
+
+#logOut,#saveButton,#submit{
+     
+    border-radius: 5px;
+    background-color: #70a742;
+    color: white;
+    
+}
+
+#logOut,#submit{
+    font-size: 15px;
+}
+
+#completedButton,#deleteButtonLeft{
+    font-size: 15px;
+    border-radius: 5px;
+    background-color:  #fd6780;
+    color: white;
+    
+}
+
+#incompleteButton,#deleteButtonRight{
+    font-size: 15px;
+    border-radius: 5px;
+    background-color: #70a742;
+    color: white;
+    
+}
+
+
+
+#article1{
+    margin-left: 10px;
+}
+
+
+#left{
+    width: 45%;
+    float: left;
+    text-align: center;
+    background-color: lightcoral;
+}
+#left,#right{
+    margin-left: 45px;
+}
+#right{
+    width: 45%;
+    float: left;
+    text-align: center;
+    background-color: #97d14b;
+}
+#toDoHeader{
+    font-size: 30px;
+}
+#doneHeader{
+    font-size: 30px;
+}
+
+ul{
+    
+    list-style: none;
+    text-align: left;
+        
+    background-color: floralwhite;
+    font-size: 20px;
+}
+
+ul li:hover{
+    background-color: lightgray;
+    
+    
+    
+}
+#footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #97d14b;
+    color: white;
+    text-align: center;
+    
+}
+
+#saveButton{
+    float: right;
+    margin-right: 50px;
+    font-size: 20px;
+    
+}
+
+#welcome{
+    position: absolute;
+    right: 0;
+    margin-right: 30px;
+    font-size: 16px;
+}
+
+#logOut{
+    position: absolute;
+    top:30px;
+    right: 40px;
+    
+}

@@ -1,0 +1,69 @@
+/* 
+    Document   : indexCSS
+    Created on : Oct 20, 2014, 10:43:47 PM
+    Author     : Bharath_Kalyans
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/**,body { 
+    display: block;
+    margin: 0;
+}*/
+body{
+    margin: 0;
+    background-color: lightgray;
+    
+}
+
+#loginForm{
+    width: 20%;
+}
+
+#header{
+    position: static;
+    top: 0;
+    background-color: #97d14b;
+    color: white;
+    text-align: center;
+    font-size: 50px;
+}
+
+form{
+    color: white;
+    float: right;
+    font-size: 25px;
+    margin: 20px;
+    
+    
+}
+
+#loginLegend{
+    padding-left: 7px;
+    padding-right: 7px;
+    border: 1px #97d14b solid;
+    background-color: #70a742;
+    border-radius: 2px;
+}
+
+#loginFieldSet{
+    
+    background-color: #97d14b;
+    border-radius: 5px;
+}
+button{
+    font-size: 20px;
+    border-radius: 5px;
+    background-color: #70a742;
+    color: white;
+}
+
+#userName{
+    width:fit-content;
+    height:20px;
+}
+
+#password{
+    width:fit-content;
+    height:20px;
+}
