@@ -1,0 +1,40 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="Styles/indexCSS.css">
+    </head>
+    <body>
+        <header id="header">To-Do App</header>
+        <form id="loginForm">
+            <fieldset id="loginFieldSet">
+                <legend id="loginLegend">Login Details</legend>
+                <label for="userName">UserName:</label>
+                <input type="text" id="userName" placeholder="Your Username"><br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" placeholder="Your Password"><br><br>
+                <button type="button" id="loginButton" onclick="getCredentials();">Sign In</button>
+                <button type="button" id="signUpButton" onclick="createDB();">Sign Up</button>
+            </fieldset>
+        </form>
+        
+        
+        <script src="Script/indexJS.js"></script>
+        <script type="text/javascript">
+             //window.onload = window.indexedDB.deleteDatabase("ToDoApp");      
+             window.onload = openDB;
+             
+             document.getElementById("password").addEventListener("keyup",function(event){
+                 if(event.keyCode===13){
+                     document.getElementById("loginButton").click();
+                 }
+             });
+             
+        </script>
+    </body>
+</html>
