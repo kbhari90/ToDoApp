@@ -1,0 +1,81 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>To-DO Application</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="../Styles/toDoCSS.css">
+    </head>
+    <body>
+        <header id="head">To-Do App
+            <span id="welcome">Welcome!
+            </span>
+            <button type="button" id="logOut" onclick="handleLogout();">Logout</button></header>
+        
+        <br>
+        <article id="article1">
+            Enter the To-Do items:
+            <input type="text" id="inputArea" autofocus="autofocus" >
+            <input type="submit" id="submit" onclick="addToDo();">
+            <button type="button" id="saveButton" onclick="saveDBData();">SAVE DATA</button>
+            
+        </article>
+        <br>
+        <hr>
+        <br>
+        <article id="article2">
+            <div id="left">
+                <header id="toDoHeader">TO-DO</header>
+                <ul id="toDo">
+                </ul>
+                <br>
+                <br>
+                <input type="button" id="completedButton" value="Complete" onclick="handleButton(event,'done');">
+                <input type="button" id="deleteButtonLeft" value="Delete" onclick="handleButton(event,'toDo');">
+            </div>
+            
+            <div id="right">
+                <header id="doneHeader">Done</header>
+                <ul id="done">
+                </ul>
+                <br>
+                <br>
+                <input type="button" id="incompleteButton" value="Incomplete" onclick="handleButton(event,'toDo');">
+                <input type="button" id="deleteButtonRight" value="Delete" onclick="handleButton(event,'done');">
+            </div>
+            
+        </article>
+           
+            <div id="saveDiv">
+            
+            </div>
+        
+        <footer id="footer">&copy;Kalki</footer>
+       
+        
+        <script src="../Script/toDoJs.js">
+           
+           
+        </script>
+        <script>
+            
+            
+            window.onload= openDB;
+            document.getElementById("inputArea").addEventListener("keyup",buttonPressHandle,false);
+           function buttonPressHandle(e){
+               console.log("Inside event handler");
+               if(e.keyCode===13){
+                   document.getElementById("submit").click();
+                   document.getElementById("inputArea").value="";
+               }
+               
+           }
+           
+           
+        </script>
+     
+    </body>
+</html>
