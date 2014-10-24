@@ -59,7 +59,7 @@ var loginAuth = function(userName,password){
       //Check for password
       if(loginRecord.password===password){
          setLoginCounterData();
-         window.location.href = window.location.origin+"/ToDoJS/HTML/ToDoPage.html?name="+encodeURIComponent(userName);
+         window.location.href = window.location.origin+"/ToDoApp/HTML/ToDoPage.html?name="+encodeURIComponent(userName);
          
          alert("Login successful");
           
