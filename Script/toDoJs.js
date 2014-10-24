@@ -250,7 +250,7 @@ function saveDBData(){
         };
         
         request.onsuccess = function(event){
-            console.log("Successfully added data");
+            alert("Successfully added data");
             for(var i=0;i<arrayListItems.length;i++)
             console.log(arrayListItems[i]);
         };
