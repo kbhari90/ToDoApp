@@ -307,7 +307,7 @@ function getNameFromUrl(){
 
 function handleLogout(){
     setLoginCounterData();
-    window.location.href = window.location.origin+"/ToDoJS/index.html";
+    window.location.href = window.location.origin+"/ToDoApp/index.html";
     alert("You have been logged out successfully");
     logCounter=1;
 }
@@ -354,7 +354,7 @@ function getLoginCounterData(){
       //console.log("in getLoginCounterRecord() : "+ (loginRecord.logCounter===1));
       if(loginRecord.logCounter===1){
           // console.log("Inside getLogincounterdata....please stop");
-          window.location.href = window.location.origin+"/ToDoJS/index.html";
+          window.location.href = window.location.origin+"/ToDoApp/index.html";
           alert("Please login again to access TODO App");
           return;
             
