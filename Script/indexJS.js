@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 var database;
-
+var booleanCounter=false;
 
 
 function loginInfo(userName,password,logCounter){
@@ -59,7 +59,10 @@ var loginAuth = function(userName,password){
       //Check for password
       if(loginRecord.password===password){
          setLoginCounterData();
-         
+         while(booleanCounter===false){
+             document.getElementById("loading").style.display="block";
+         }
+         document.getElementById("loading").style.display="none";
          window.location.href = window.location.origin+"/ToDoApp/HTML/ToDoPage.html?name="+encodeURIComponent(userName);
          alert("Login successful");
           
@@ -75,6 +78,7 @@ var loginAuth = function(userName,password){
 };
 
 function openDB(){
+    document.getElementById("loading").style.display="none";
     var request = window.indexedDB.open("ToDoApp",1);
     
     //onSuccess event of database open
@@ -144,7 +148,8 @@ function setLoginCounterData(){
       };
       
       loginRecordUpdate.onsuccess = function(event){
-        alert("success updating logcounter after password check in login page");  
+        alert("success updating logcounter after password check in login page");
+        booleanCounter=true;
       };
       
     };
