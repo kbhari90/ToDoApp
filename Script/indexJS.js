@@ -144,7 +144,7 @@ function setLoginCounterData(){
       };
       
       loginRecordUpdate.onsuccess = function(event){
-        //alert("success updating logcounter after password check in login page");  
+        alert("success updating logcounter after password check in login page");  
       };
       
     };
