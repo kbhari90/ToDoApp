@@ -67,3 +67,13 @@ button{
     width:fit-content;
     height:20px;
 }
+
+#footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #97d14b;
+    color: white;
+    text-align: center;
+    
+}
