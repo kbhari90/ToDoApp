@@ -59,7 +59,7 @@ var loginAuth = function(userName,password){
       //Check for password
       if(loginRecord.password===password){
           
-         setLoginCounterData();
+         setLoginCounterData(userName);
          
          
          
@@ -126,7 +126,7 @@ function createDB(){
     }
 }
 
-function setLoginCounterData(){
+function setLoginCounterData(userName){
     document.getElementById("loading").style.display="block";
     var transaction =database.transaction(["Login"],"readwrite");
     var objectStore = transaction.objectStore("Login");
