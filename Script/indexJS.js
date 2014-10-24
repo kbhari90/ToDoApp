@@ -59,7 +59,7 @@ var loginAuth = function(userName,password){
       //Check for password
       if(loginRecord.password===password){
          setLoginCounterData();
-         window.location.href = window.location.origin+"/ToDoApp/HTML/ToDoPage.html?name="+encodeURIComponent(userName);
+         getLoginCounterData();
          
          alert("Login successful");
           
@@ -148,4 +148,34 @@ function setLoginCounterData(){
       };
       
     };
+}
+
+function getLoginCounterData(){
+    
+    var transaction =database.transaction(["Login"],"readwrite");
+    var objectStore = transaction.objectStore("Login");
+    var request = objectStore.get(userName);
+    
+    request.onerror= function(event){
+      alert("Error in opening table");  
+    };
+    
+    request.onsuccess = function(event){
+      var loginRecord = request.result;
+      //console.log("in getLoginCounterRecord() : "+ (loginRecord.logCounter===1));
+      if(loginRecord.logCounter===0){
+          // console.log("Inside getLogincounterdata....please stop");
+        //   window.location.href = window.location.origin+"/ToDoApp/index.html";
+        //   alert("Please login again to access TODO App");
+        //   return;
+        window.location.href = window.location.origin+"/ToDoApp/HTML/ToDoPage.html?name="+encodeURIComponent(userName);
+        
+            
+        }
+      else{
+            return;
+        
+    }
+    };
+    
 }
