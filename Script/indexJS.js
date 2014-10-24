@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 var database;
-var booleanCounter=false;
+//var booleanCounter=false;
 
 
 function loginInfo(userName,password,logCounter){
@@ -58,15 +58,11 @@ var loginAuth = function(userName,password){
       }
       //Check for password
       if(loginRecord.password===password){
-          document.getElementById("loading").style.display="block";
+          
          setLoginCounterData();
          
-         while(booleanCounter===false){
-             
-         }
-         document.getElementById("loading").style.display="none";
-         window.location.href = window.location.origin+"/ToDoApp/HTML/ToDoPage.html?name="+encodeURIComponent(userName);
-         alert("Login successful");
+         
+         
           
           
       }else{
@@ -131,6 +127,7 @@ function createDB(){
 }
 
 function setLoginCounterData(){
+    document.getElementById("loading").style.display="block";
     var transaction =database.transaction(["Login"],"readwrite");
     var objectStore = transaction.objectStore("Login");
     var request = objectStore.get(document.getElementById("userName").value);
@@ -144,13 +141,16 @@ function setLoginCounterData(){
       loginRecord.logCounter=0;
       
       var loginRecordUpdate = objectStore.put(loginRecord);
-       booleanCounter=true;
+       
       loginRecordUpdate.onerror= function(event){
         alert("Error in updating logcounter after password check in login page");
       };
       
       loginRecordUpdate.onsuccess = function(event){
-        alert("success updating logcounter after password check in login page");
+          document.getElementById("loading").style.display="none";
+         window.location.href = window.location.origin+"/ToDoApp/HTML/ToDoPage.html?name="+encodeURIComponent(userName);
+         alert("Login successful");
+        //alert("success updating logcounter after password check in login page");
        
       };
       
