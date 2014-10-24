@@ -58,9 +58,11 @@ var loginAuth = function(userName,password){
       }
       //Check for password
       if(loginRecord.password===password){
+          document.getElementById("loading").style.display="block";
          setLoginCounterData();
+         
          while(booleanCounter===false){
-             document.getElementById("loading").style.display="block";
+             
          }
          document.getElementById("loading").style.display="none";
          window.location.href = window.location.origin+"/ToDoApp/HTML/ToDoPage.html?name="+encodeURIComponent(userName);
@@ -142,14 +144,14 @@ function setLoginCounterData(){
       loginRecord.logCounter=0;
       
       var loginRecordUpdate = objectStore.put(loginRecord);
-      
+       booleanCounter=true;
       loginRecordUpdate.onerror= function(event){
         alert("Error in updating logcounter after password check in login page");
       };
       
       loginRecordUpdate.onsuccess = function(event){
         alert("success updating logcounter after password check in login page");
-        booleanCounter=true;
+       
       };
       
     };
