@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 var database;
-
+//var booleanCounter=false;
 
 
 function loginInfo(userName,password,logCounter){
@@ -58,10 +58,13 @@ var loginAuth = function(userName,password){
       }
       //Check for password
       if(loginRecord.password===password){
-         setLoginCounterData();
-         window.location.href = window.location.origin+"/ToDoApp/HTML/ToDoPage.html?name="+encodeURIComponent(userName);
+
+          
+         setLoginCounterData(userName);
          
-         alert("Login successful");
+         
+
+         
           
           
       }else{
@@ -75,6 +78,7 @@ var loginAuth = function(userName,password){
 };
 
 function openDB(){
+    document.getElementById("loading").style.display="none";
     var request = window.indexedDB.open("ToDoApp",1);
     
     //onSuccess event of database open
@@ -124,7 +128,8 @@ function createDB(){
     }
 }
 
-function setLoginCounterData(){
+function setLoginCounterData(userName){
+    document.getElementById("loading").style.display="block";
     var transaction =database.transaction(["Login"],"readwrite");
     var objectStore = transaction.objectStore("Login");
     var request = objectStore.get(document.getElementById("userName").value);
@@ -138,14 +143,50 @@ function setLoginCounterData(){
       loginRecord.logCounter=0;
       
       var loginRecordUpdate = objectStore.put(loginRecord);
-      
+       
       loginRecordUpdate.onerror= function(event){
         alert("Error in updating logcounter after password check in login page");
       };
       
       loginRecordUpdate.onsuccess = function(event){
-        //alert("success updating logcounter after password check in login page");  
+          document.getElementById("loading").style.display="none";
+         window.location.href = window.location.origin+"/ToDoApp/HTML/ToDoPage.html?name="+encodeURIComponent(userName);
+         alert("Login successful");
+        //alert("success updating logcounter after password check in login page");
+       
       };
       
     };
 }
+
+
+function getLoginCounterData(){
+    
+    var transaction =database.transaction(["Login"],"readwrite");
+    var objectStore = transaction.objectStore("Login");
+    var request = objectStore.get(userName);
+    
+    request.onerror= function(event){
+      alert("Error in opening table");  
+    };
+    
+    request.onsuccess = function(event){
+      var loginRecord = request.result;
+      //console.log("in getLoginCounterRecord() : "+ (loginRecord.logCounter===1));
+      if(loginRecord.logCounter===0){
+          // console.log("Inside getLogincounterdata....please stop");
+        //   window.location.href = window.location.origin+"/ToDoApp/index.html";
+        //   alert("Please login again to access TODO App");
+        //   return;
+        window.location.href = window.location.origin+"/ToDoApp/HTML/ToDoPage.html?name="+encodeURIComponent(userName);
+        
+            
+        }
+      else{
+            return;
+        
+    }
+    };
+    
+}
+
